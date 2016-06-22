@@ -12,10 +12,8 @@ public class Customer {
     @GeneratedValue
     int id;
 
-    @Column(nullable = false)
     String name;
 
-    @Column(nullable = false)
     String email;
 
     public Customer(String name, String email) {

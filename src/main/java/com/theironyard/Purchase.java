@@ -12,18 +12,19 @@ import java.util.Date;
 
 public class Purchase {
     @Id
-    int customerId;
+            @GeneratedValue
+    int purchaseId;
 
-    @Column(nullable = false)
+
     String date;
 
-    @Column(nullable = false)
+
     String creditCard;
 
-    @Column(nullable = false)
+
     String ccv;
 
-    @Column(nullable = false)
+
     String category;
 
     @ManyToOne
@@ -40,12 +41,16 @@ public class Purchase {
     public Purchase() {
     }
 
-    public int getCustomerId() {
-        return customerId;
+    public int getPurchaseId() {
+        return purchaseId;
     }
 
-    public void setCustomerId(int customerId) {
-        this.customerId = customerId;
+    public void setPurchaseId(int purchaseId) {
+        this.purchaseId = purchaseId;
+    }
+
+    public Purchase(int purchaseId) {
+        this.purchaseId = purchaseId;
     }
 
     public String getDate() {
