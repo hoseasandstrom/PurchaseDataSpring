@@ -7,12 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.annotation.PostConstruct;
-import javax.servlet.http.HttpSession;
 import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.time.Instant;
-import java.util.Date;
+import java.io.FileNotFoundException;
+
 import java.util.Scanner;
 
 
@@ -29,10 +26,10 @@ public class PurchaseController {
     PurchaseRepository purchases;
 
     @PostConstruct
-    public void init() throws IOException {
+    public void init() throws FileNotFoundException {
         if (customers.count() == 0) {
-            File c = new File("customer.csv");
-            Scanner fileScanner = new Scanner(c);
+            File f = new File("customers.csv");
+            Scanner fileScanner = new Scanner(f);
             fileScanner.nextLine();
             while (fileScanner.hasNext()) {
                 String[] columns = fileScanner.nextLine().split(",");
@@ -42,8 +39,8 @@ public class PurchaseController {
         }
 
         if (purchases.count() == 0) {
-            File p = new File("customer.csv");
-            Scanner fileScanner = new Scanner(p);
+            File f = new File("purchases.csv");
+            Scanner fileScanner = new Scanner(f);
             fileScanner.nextLine();
             while (fileScanner.hasNext()) {
                 String[] columns = fileScanner.nextLine().split(",");
@@ -54,7 +51,7 @@ public class PurchaseController {
     }
 
     @RequestMapping(path = "/", method= RequestMethod.GET)
-    public String home(Model model, Integer customerId, Date date, String category) {
+    public String home(Model model, String category) {
 
         Iterable<Purchase> purchs;
 

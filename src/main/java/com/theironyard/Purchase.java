@@ -2,7 +2,7 @@ package com.theironyard;
 
 
 import javax.persistence.*;
-import java.util.Date;
+
 
 /**
  * Created by hoseasandstrom on 6/22/16.
@@ -12,7 +12,7 @@ import java.util.Date;
 
 public class Purchase {
     @Id
-            @GeneratedValue
+    @GeneratedValue
     int purchaseId;
 
 
@@ -31,6 +31,15 @@ public class Purchase {
     Customer customer;
 
     public Purchase(String date, String creditCard, String ccv, String category, Customer customer) {
+        this.date = date;
+        this.creditCard = creditCard;
+        this.ccv = ccv;
+        this.category = category;
+        this.customer = customer;
+    }
+
+    public Purchase(int purchaseId, String date, String creditCard, String ccv, String category, Customer customer) {
+        this.purchaseId = purchaseId;
         this.date = date;
         this.creditCard = creditCard;
         this.ccv = ccv;
