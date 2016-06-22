@@ -20,27 +20,29 @@
         <thead>
             <th>Name</th>
             <th>Email</th>
+            </thead>
+        <thead>
             <th>Category</th>
             <th>Credit Card</th>
             <th>CCV</th>
             <th>Date</th>
         </thead>
             <tbody>
-            <!--{{#customers}}-->
+            {{#customers}}
                 <tr>
                     <td>{{name}}</td>
                     <td>{{email}}</td>
+                </tr>
+            {{/customers}}
 
-            <!--{{/customers}}-->
-
-            <!--{{#purchases}}-->
-
+            {{#purchases}}
+                <tr>
                     <td>{{category}}</td>
-                    <td>{{creditcard}}</td>
+                    <td>{{creditCard}}</td>
                     <td>{{ccv}}</td>
                     <td>{{date}}</td>
                 </tr>
-            <!--{{/purchases}}-->
+            {{/purchases}}
             </tbody>
     </table>
 </div>

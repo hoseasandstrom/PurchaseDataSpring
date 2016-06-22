@@ -44,7 +44,7 @@ public class PurchaseController {
             fileScanner.nextLine();
             while (fileScanner.hasNext()) {
                 String[] columns = fileScanner.nextLine().split(",");
-                Purchase purchase = new Purchase(columns[1],columns[2], columns[3], columns[4], customers.findOne(Integer.valueOf(columns[5])));
+                Purchase purchase = new Purchase(columns[1],columns[2], columns[3], columns[4], customers.findOne(Integer.valueOf(columns[0])));
                 purchases.save(purchase);
             }
         }
