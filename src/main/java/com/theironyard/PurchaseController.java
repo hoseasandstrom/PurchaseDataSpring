@@ -8,7 +8,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.time.Instant;
 import java.util.Date;
+import java.util.Scanner;
 
 
 /**
@@ -24,11 +29,27 @@ public class PurchaseController {
     PurchaseRepository purchases;
 
     @PostConstruct
-    public void init() {
+    public void init() throws IOException {
         if (customers.count() == 0) {
-            Customer customer = new Customer();
+            File c = new File("customer.csv");
+            Scanner fileScanner = new Scanner(c);
+            fileScanner.nextLine();
+            while (fileScanner.hasNext()) {
+                String[] columns = fileScanner.nextLine().split(",");
+                Customer customer = new Customer(columns[0], columns[1]);
+                customers.save(customer);
+            }
+        }
 
-            customers.save(customer);
+        if (purchases.count() == 0) {
+            File p = new File("customer.csv");
+            Scanner fileScanner = new Scanner(p);
+            fileScanner.nextLine();
+            while (fileScanner.hasNext()) {
+                String[] columns = fileScanner.nextLine().split(",");
+                Purchase purchase = new Purchase(columns[1],columns[2], columns[3], columns[4], customers.findOne(Integer.valueOf(columns[5])));
+                purchases.save(purchase);
+            }
         }
     }
 
@@ -37,19 +58,13 @@ public class PurchaseController {
 
         Iterable<Purchase> purchs;
 
-            if (customerId != null) {
-                purchs = purchases.findByCustomerId(customerId);
-            }
-            else if (date != null) {
-                purchs = purchases.findByDate(date);
-            }
-            else  {
+            if (category != null) {
                 purchs = purchases.findByCategory(category);
+            } else {
+                purchs = purchases.findAll();
             }
 
             model.addAttribute("purchases", purchs);
             return "home";
         }
     }
-
-}

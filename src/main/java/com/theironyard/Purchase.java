@@ -15,13 +15,13 @@ public class Purchase {
     int customerId;
 
     @Column(nullable = false)
-    Date date;
+    String date;
 
     @Column(nullable = false)
-    Number creditCard;
+    String creditCard;
 
     @Column(nullable = false)
-    Number ccv;
+    String ccv;
 
     @Column(nullable = false)
     String category;
@@ -29,8 +29,7 @@ public class Purchase {
     @ManyToOne
     Customer customer;
 
-    public Purchase(int customerId, Date date, Number creditCard, Number ccv, String category, Customer customer) {
-        this.customerId = customerId;
+    public Purchase(String date, String creditCard, String ccv, String category, Customer customer) {
         this.date = date;
         this.creditCard = creditCard;
         this.ccv = ccv;
@@ -49,27 +48,27 @@ public class Purchase {
         this.customerId = customerId;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
-    public Number getCreditCard() {
+    public String getCreditCard() {
         return creditCard;
     }
 
-    public void setCreditCard(Number creditCard) {
+    public void setCreditCard(String creditCard) {
         this.creditCard = creditCard;
     }
 
-    public Number getCcv() {
+    public String getCcv() {
         return ccv;
     }
 
-    public void setCcv(Number ccv) {
+    public void setCcv(String ccv) {
         this.ccv = ccv;
     }
 
