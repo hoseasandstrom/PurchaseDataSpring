@@ -1,9 +1,6 @@
 package com.theironyard;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by hoseasandstrom on 6/22/16.
@@ -15,7 +12,10 @@ public class Customer {
     @GeneratedValue
     int id;
 
+    @Column(nullable = false)
     String name;
+
+    @Column(nullable = false)
     String email;
 
     public Customer(String name, String email) {

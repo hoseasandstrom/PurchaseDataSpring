@@ -1,25 +1,35 @@
 package com.theironyard;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+
+import javax.persistence.*;
+import java.util.Date;
 
 /**
  * Created by hoseasandstrom on 6/22/16.
  */
 @Entity
 @Table(name = "purchaseinfo")
+
 public class Purchase {
+    @Id
     int customerId;
-    String date;
-    String creditCard;
-    String ccv;
+
+    @Column(nullable = false)
+    Date date;
+
+    @Column(nullable = false)
+    Number creditCard;
+
+    @Column(nullable = false)
+    Number ccv;
+
+    @Column(nullable = false)
     String category;
 
     @ManyToOne
     Customer customer;
 
-    public Purchase(int customerId, String date, String creditCard, String ccv, String category, Customer customer) {
+    public Purchase(int customerId, Date date, Number creditCard, Number ccv, String category, Customer customer) {
         this.customerId = customerId;
         this.date = date;
         this.creditCard = creditCard;
@@ -39,27 +49,27 @@ public class Purchase {
         this.customerId = customerId;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
-    public String getCreditCard() {
+    public Number getCreditCard() {
         return creditCard;
     }
 
-    public void setCreditCard(String creditCard) {
+    public void setCreditCard(Number creditCard) {
         this.creditCard = creditCard;
     }
 
-    public String getCcv() {
+    public Number getCcv() {
         return ccv;
     }
 
-    public void setCcv(String ccv) {
+    public void setCcv(Number ccv) {
         this.ccv = ccv;
     }
 
