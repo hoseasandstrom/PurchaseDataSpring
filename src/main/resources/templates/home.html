@@ -12,8 +12,39 @@
 <a href="/?category=Shoes">Shoes</a>
 <a href="/?category=Food">Food</a>
 <a href="/?category=Jewelry">Jewelry</a>
+<br>
+<br>
 
-{{#customers}} {{name}} {{email}} {{/customers}} {{#purchases}} {{category}} {{creditcard}} {{ccv}} {{date}} {{/purchases}}
+<div id="table">
+    <table>
+        <thead>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Category</th>
+            <th>Credit Card</th>
+            <th>CCV</th>
+            <th>Date</th>
+        </thead>
+            <tbody>
+            <!--{{#customers}}-->
+                <tr>
+                    <td>{{name}}</td>
+                    <td>{{email}}</td>
+
+            <!--{{/customers}}-->
+
+            <!--{{#purchases}}-->
+
+                    <td>{{category}}</td>
+                    <td>{{creditcard}}</td>
+                    <td>{{ccv}}</td>
+                    <td>{{date}}</td>
+                </tr>
+            <!--{{/purchases}}-->
+            </tbody>
+    </table>
+</div>
+
 
 </body>
 </html>
