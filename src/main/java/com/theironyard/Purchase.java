@@ -13,15 +13,17 @@ public class Purchase {
     int customerId;
     String date;
     String creditCard;
+    String ccv;
     String category;
 
     @ManyToOne
     Customer customer;
 
-    public Purchase(int customerId, String date, String creditCard, String category, Customer customer) {
+    public Purchase(int customerId, String date, String creditCard, String ccv, String category, Customer customer) {
         this.customerId = customerId;
         this.date = date;
         this.creditCard = creditCard;
+        this.ccv = ccv;
         this.category = category;
         this.customer = customer;
     }
