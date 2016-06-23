@@ -1,51 +1,68 @@
 <!DOCTYPE html>
+
+<link rel="stylesheet" type="text/css" href="bootstrap.css">
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <title>Purchase Report</title>
 </head>
 <body>
-<a href ="/">ALL</a>
-<a href="/?category=Furniture">Furniture</a>
-<a href="/?category=Alcohol">Alcohol</a>
-<a href="/?category=Toiletries">Toiletries</a>
-<a href="/?category=Shoes">Shoes</a>
-<a href="/?category=Food">Food</a>
-<a href="/?category=Jewelry">Jewelry</a>
+<h3>
+<center>
+    <a href ="/">ALL | </a>
+    &nbsp
+    <a href="/?category=Furniture">Furniture|</a>
+    &nbsp
+    <a href="/?category=Alcohol">Alcohol|</a>
+    &nbsp
+    <a href="/?category=Toiletries">Toiletries|</a>
+    &nbsp
+    <a href="/?category=Shoes">Shoes|</a>
+    &nbsp
+    <a href="/?category=Food">Food|</a>
+    &nbsp
+    <a href="/?category=Jewelry">Jewelry</a>
+</center>
+</h3>
 <br>
 <br>
-
-<div id="table">
+<center>
     <table>
         <thead>
-            <th>Name</th>
-            <th>Email</th>
-            </thead>
-        <thead>
-            <th>Category</th>
-            <th>Credit Card</th>
-            <th>CCV</th>
-            <th>Date</th>
+        <th>Name</th>
+        <th></th>
+        <th>Email</th>
+        <th></th>
+        <th>Category</th>
+        <th></th>
+        <th>Credit Card</th>
+        <th></th>
+        <th>CCV</th>
+        <th></th>
+        <th>Date</th>
+        <th></th>
         </thead>
-            <tbody>
-            {{#customers}}
-                <tr>
-                    <td>{{name}}</td>
-                    <td>{{email}}</td>
-                </tr>
-            {{/customers}}
 
-            {{#purchases}}
-                <tr>
-                    <td>{{category}}</td>
-                    <td>{{creditCard}}</td>
-                    <td>{{ccv}}</td>
-                    <td>{{date}}</td>
-                </tr>
-            {{/purchases}}
-            </tbody>
+        {{#purchases}}
+        <tr>
+            <td>{{customer.name}}</td>
+            <td></td>
+            <td>{{customer.email}}</td>
+            <td></td>
+            <td>{{category}}</td>
+            <td></td>
+            <td>{{creditCard}}</td>
+            <td></td>
+            <td>{{ccv}}</td>
+            <td></td>
+            <td>{{date}}</td>
+            <td></td>
+        </tr>
+        {{/purchases}}
+
     </table>
-</div>
+</center>
 
 
 </body>

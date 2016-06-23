@@ -18,12 +18,12 @@ import java.util.Scanner;
  */
 @Controller
 public class PurchaseController {
+    @Autowired
+    PurchaseRepository purchases;
 
     @Autowired
     CustomerRepository customers;
 
-    @Autowired
-    PurchaseRepository purchases;
 
     @PostConstruct
     public void init() throws FileNotFoundException {
