@@ -11,17 +11,17 @@
 <h3>
 <center>
     <a href ="/">ALL | </a>
-    &nbsp
-    <a href="/?category=Furniture">Furniture|</a>
-    &nbsp
-    <a href="/?category=Alcohol">Alcohol|</a>
-    &nbsp
-    <a href="/?category=Toiletries">Toiletries|</a>
-    &nbsp
-    <a href="/?category=Shoes">Shoes|</a>
-    &nbsp
-    <a href="/?category=Food">Food|</a>
-    &nbsp
+
+    <a href="/?category=Furniture">Furniture | </a>
+
+    <a href="/?category=Alcohol">Alcohol | </a>
+
+    <a href="/?category=Toiletries">Toiletries | </a>
+
+    <a href="/?category=Shoes">Shoes | </a>
+
+    <a href="/?category=Food">Food | </a>
+
     <a href="/?category=Jewelry">Jewelry</a>
 </center>
 </h3>
@@ -60,8 +60,18 @@
             <td></td>
         </tr>
         {{/purchases}}
-
     </table>
+    <br>
+    <br>
+    {{#showPrevious}}
+    <a href="/?page={{previousPage}}{{#category}}&category={{.}}{{/category}}">Previous Page</a>
+    {{/showPrevious}}
+
+    {{#showNext}}
+     <a href="/?page={{nextPage}}{{#category}}&category={{.}}{{/category}}">Next Page</a>
+    {{/showNext}}
+
+
 </center>
 
 
